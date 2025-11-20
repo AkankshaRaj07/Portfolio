@@ -31,8 +31,14 @@ jobs:
           restore-keys: |
             npm-cache-${{ runner.os }}-
 
-      - name: Install dependencies (try ci, fallback to install)
-        run: npm ci || npm install
+      - name: Clean any preinstalled lock/node_modules (ensures correct platform install)
+        run: |
+          rm -rf node_modules package-lock.json || true
+          # show that files are gone
+          ls -la
+
+      - name: Install dependencies (fresh install on runner)
+        run: npm install
 
       - name: Build Vite project
         run: npm run build
