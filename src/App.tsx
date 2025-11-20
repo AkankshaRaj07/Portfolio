@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Cursor from "./components/Cursor";
-import { Mail, Github, Linkedin } from "lucide-react";
+import {  Github, Linkedin } from "lucide-react";
 import gssocImg from "./assets/badges/gssoc.jpg";
 
 
@@ -274,14 +274,7 @@ const skills = [
 
 
 
-const achievements = [
-  "Winner — Smart India Internal Hackathon (SIH) 2025 (Top team among ~100 teams).",
-  "Finalist — Suraksha Cyber Hackathon by Canara Bank, 2025 (Prototype round, Top 100).",
-  "Finalist — HackOrbit National Hackathon by MITS Gwalior 2025 (Final Judging Round, Top 25).",
-  "Participant — GDG On Campus Solution Challenge 2025 (Prototype phase).",
-  "Participant — Smart India Hackathon 2024 (internal college-level selection).",
-  "Academic awards: Prabhat Khabar Samman Samaroh (2020 & 2022), Dainik Jagran Genius Award 2022.",
-];
+
 // at top of App.tsx (below imports, above function App)
 
 const badgeItems = [
