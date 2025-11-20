@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cursor effect styles */
+.fixed.z-\[9999\] {
+  transition: transform .18s linear, opacity .18s linear;
+}
+
+body.cursor-hover-active .fixed.z-\[9999\]:first-child {
+  transform: scale(1.5);
+  opacity: 0.95;
+}
+
+body.cursor-hover-active .fixed.z-\[9999\] + div {
+  opacity: 0.55;
+  transform: scale(1.1);
+}
+
+:root {
+  color-scheme: dark;
+  background-color: #0b0c10;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    background-color: #ffffff;
+    color: #111111;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+  }
+}
+/* Show placeholder if image failed: parent will have data-broken="true" */
+[data-broken="true"] .fallback-placeholder { display: flex !important; }
+[data-broken="true"] img { display: none !important; }
+
+/* hover lift + neon-ish glow */
+section#badges .interactive {
+  transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s;
+}
+section#badges .interactive:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(124,58,237,0.12);
+}
+
+/* make image area circular and centered (already set in JSX) */
+section#badges .w-24.h-24 { border-radius: 9999px; }
+
+/* optional: a subtle border when image loads cleanly */
+section#badges img { border-radius: 9999px; }
+
