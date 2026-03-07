@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-<<<<<<< HEAD
+
 @theme {
   --color-primary-purple: #c770f0;
   --color-dark-purple: #1a0b2e;
@@ -59,7 +59,7 @@
 .Typewriter__cursor {
   color: #c770f0 !important;
 }
-=======
+
 html, body, #root {
   height: 100%;
   margin: 0;
@@ -140,4 +140,4 @@ section#badges .w-24.h-24 { border-radius: 9999px; }
 /* optional: a subtle border when image loads cleanly */
 section#badges img { border-radius: 9999px; }
 
->>>>>>> ec266dda7aa7a4617f820f549005b40ba2c8f190
+

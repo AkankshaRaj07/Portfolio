@@ -24,7 +24,7 @@ function App() {
       <Particle />
       <Navbar />
 
-      <main className="flex-grow pt-20" id={load ? "no-scroll" : "scroll"}>
+      <main className="grow pt-20" id={load ? "no-scroll" : "scroll"}>
         <Home />
         <About />
         <Projects />
