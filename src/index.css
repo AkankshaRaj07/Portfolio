@@ -16,7 +16,7 @@
   }
   
   body {
-    @apply bg-[var(--color-dark-bg)] text-white font-sans overflow-x-hidden;
+    @apply bg-dark-bg text-white font-sans overflow-x-hidden;
   }
   
   ::selection {
