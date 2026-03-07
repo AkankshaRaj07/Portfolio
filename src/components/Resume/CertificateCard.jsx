@@ -31,7 +31,7 @@ const CertificateCard = ({ cert }) => {
 
                     {cert.image && !isPdf ? (
                         <img
-                            src={cert.image}
+                            src={cert.image.startsWith('/') ? `${import.meta.env.BASE_URL}${cert.image.slice(1)}` : cert.image}
                             alt={cert.title}
                             className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
                         />
@@ -39,7 +39,7 @@ const CertificateCard = ({ cert }) => {
                         <div className="w-full h-full opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 pointer-events-none overflow-hidden relative">
                             {/* The object tag loads the PDF. pointer-events-none prevents scrolling/interacting in the thumbnail */}
                             <object
-                                data={`${cert.image}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                                data={`${cert.image.startsWith('/') ? import.meta.env.BASE_URL + cert.image.slice(1) : cert.image}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
                                 type="application/pdf"
                                 className="w-[120%] h-[120%] absolute top-[-10%] left-[-10%]"
                             >
@@ -122,13 +122,13 @@ const CertificateCard = ({ cert }) => {
                             <div className="p-4 overflow-auto flex-1 flex justify-center items-center align-middle h-[70vh]">
                                 {isPdf ? (
                                     <iframe
-                                        src={`${cert.image}#toolbar=0`}
+                                        src={`${cert.image.startsWith('/') ? import.meta.env.BASE_URL + cert.image.slice(1) : cert.image}#toolbar=0`}
                                         className="w-full h-full rounded bg-white"
                                         title={cert.title}
                                     />
                                 ) : (
                                     <img
-                                        src={cert.image}
+                                        src={cert.image.startsWith('/') ? import.meta.env.BASE_URL + cert.image.slice(1) : cert.image}
                                         alt={cert.title}
                                         className="max-w-full max-h-full object-contain rounded"
                                     />
@@ -136,7 +136,7 @@ const CertificateCard = ({ cert }) => {
                             </div>
                             <div className="p-4 border-t border-gray-800 flex justify-end">
                                 <a
-                                    href={cert.image}
+                                    href={cert.image.startsWith('/') ? import.meta.env.BASE_URL + cert.image.slice(1) : cert.image}
                                     target="_blank"
                                     rel="noreferrer"
                                     className="bg-primary-purple hover:bg-primary-purple/80 text-white px-4 py-2 rounded-lg font-medium transition-colors"

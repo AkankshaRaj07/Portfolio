@@ -119,7 +119,7 @@ function Resume() {
 
                 <div className="text-center mb-16">
                     <motion.a
-                        href="/RESUME AKANKSHA 5th March.pdf"
+                        href={`${import.meta.env.BASE_URL}RESUME AKANKSHA 5th March.pdf`}
                         target="_blank"
                         download
                         whileHover={{ scale: 1.05 }}

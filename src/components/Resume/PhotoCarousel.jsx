@@ -59,7 +59,7 @@ function PhotoCarousel() {
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
                 <motion.img
                     key={currentIndex}
-                    src={defaultImages[currentIndex]}
+                    src={`${import.meta.env.BASE_URL}${defaultImages[currentIndex].replace(/^\//, '')}`}
                     custom={direction}
                     variants={variants}
                     initial="enter"
