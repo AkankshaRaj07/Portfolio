@@ -14,6 +14,7 @@ function Badges() {
 
     return (
         <motion.div
+            id="badges"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -29,13 +30,19 @@ function Badges() {
                         key={index}
                         whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 5 : -5 }}
                         transition={{ type: "spring", stiffness: 300 }}
-                        className="glass p-4 rounded-xl shadow-lg border border-primary-purple/20 flex flex-col items-center justify-center w-28 h-28 md:w-40 md:h-40"
+                        className="glass p-4 rounded-xl shadow-lg border border-primary-purple/20 flex flex-col items-center justify-center w-28 h-28 md:w-40 md:h-40 interactive"
                     >
                         <img
                             src={badge.icon?.startsWith('/static/') ? `https://leetcode.com${badge.icon}` : badge.icon}
                             alt={badge.displayName}
                             className="w-16 h-16 md:w-24 md:h-24 object-contain drop-shadow-[0_0_15px_rgba(199,112,240,0.5)]"
+                            onError={(e) => {
+                                e.currentTarget.parentElement.setAttribute("data-broken", "true");
+                            }}
                         />
+                        <div className="fallback-placeholder hidden w-full h-full items-center justify-center text-center text-xs text-primary-purple/80 font-semibold p-2">
+                            {badge.displayName}
+                        </div>
                     </motion.div>
                 ))}
             </div>

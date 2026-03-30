@@ -14,11 +14,11 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-dark-bg text-white font-sans overflow-x-hidden;
   }
-  
+
   ::selection {
     @apply bg-purple-500/30 text-white;
   }
@@ -28,13 +28,16 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #0c0513;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(199, 112, 240, 0.5);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(199, 112, 240, 0.8);
 }
@@ -50,6 +53,7 @@
 .card-hover {
   transition: all 0.3s ease-in-out;
 }
+
 .card-hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px -15px rgba(199, 112, 240, 0.5);
@@ -60,7 +64,9 @@
   color: #c770f0 !important;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -85,7 +91,7 @@ body.cursor-hover-active .fixed.z-\[9999\]:first-child {
   opacity: 0.95;
 }
 
-body.cursor-hover-active .fixed.z-\[9999\] + div {
+body.cursor-hover-active .fixed.z-\[9999\]+div {
   opacity: 0.55;
   transform: scale(1.1);
 }
@@ -114,6 +120,7 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -121,23 +128,32 @@ button {
     animation-duration: 1ms !important;
   }
 }
+
 /* Show placeholder if image failed: parent will have data-broken="true" */
-[data-broken="true"] .fallback-placeholder { display: flex !important; }
-[data-broken="true"] img { display: none !important; }
+[data-broken="true"] .fallback-placeholder {
+  display: flex !important;
+}
+
+[data-broken="true"] img {
+  display: none !important;
+}
 
 /* hover lift + neon-ish glow */
 section#badges .interactive {
-  transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s;
+  transition: transform .18s cubic-bezier(.2, .9, .2, 1), box-shadow .18s;
 }
+
 section#badges .interactive:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(124,58,237,0.12);
+  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.12);
 }
 
 /* make image area circular and centered (already set in JSX) */
-section#badges .w-24.h-24 { border-radius: 9999px; }
+section#badges .w-24.h-24 {
+  border-radius: 9999px;
+}
 
 /* optional: a subtle border when image loads cleanly */
-section#badges img { border-radius: 9999px; }
-
-
+section#badges img {
+  border-radius: 9999px;
+}

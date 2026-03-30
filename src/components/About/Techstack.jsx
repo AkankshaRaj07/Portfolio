@@ -17,25 +17,25 @@ import { motion } from "framer-motion";
 
 function Techstack() {
     const techs = [
-        { icon: <DiJava />, name: "Java" },
-        { icon: <DiPython />, name: "Python" },
-        { icon: <DiJavascript1 />, name: "JavaScript" },
-        { icon: <DiExt name="C++" icon={<CgCPlusPlus />} />, name: "C++" },
-        { icon: <DiReact />, name: "ReactJS" },
-        { icon: <DiNodejs />, name: "NodeJS" },
-        { icon: <SiExpress />, name: "ExpressJS" },
-        { icon: <DiMongodb />, name: "MongoDB" },
-        { icon: <DiMysql />, name: "MySQL" },
-        { icon: <SiFlask />, name: "Flask" },
-        { icon: <DiHtml5 />, name: "HTML" },
-        { icon: <DiCss3 />, name: "CSS" },
-        { icon: <DiGit />, name: "Git" }
+        { icon: <DiJava />, name: "Java", link: "https://www.java.com/" },
+        { icon: <DiPython />, name: "Python", link: "https://www.python.org/" },
+        { icon: <DiJavascript1 />, name: "JavaScript", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+        { icon: <DiExt name="C++" icon={<CgCPlusPlus />} />, name: "C++", link: "https://cplusplus.com/" },
+        { icon: <DiReact />, name: "ReactJS", link: "https://react.dev/" },
+        { icon: <DiNodejs />, name: "NodeJS", link: "https://nodejs.org/" },
+        { icon: <SiExpress />, name: "ExpressJS", link: "https://expressjs.com/" },
+        { icon: <DiMongodb />, name: "MongoDB", link: "https://www.mongodb.com/" },
+        { icon: <DiMysql />, name: "MySQL", link: "https://www.mysql.com/" },
+        { icon: <SiFlask />, name: "Flask", link: "https://flask.palletsprojects.com/" },
+        { icon: <DiHtml5 />, name: "HTML", link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+        { icon: <DiCss3 />, name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+        { icon: <DiGit />, name: "Git", link: "https://git-scm.com/" }
     ];
 
     return (
         <div className="flex flex-wrap justify-center pb-12 gap-4 md:gap-6">
             {techs.map((tech, index) => (
-                <TechIconWrapper key={index} name={tech.name}>
+                <TechIconWrapper key={index} name={tech.name} link={tech.link}>
                     {tech.icon}
                 </TechIconWrapper>
             ))}
@@ -43,14 +43,17 @@ function Techstack() {
     );
 }
 
-const TechIconWrapper = ({ children, name }) => {
+const TechIconWrapper = ({ children, name, link }) => {
     return (
-        <motion.div
+        <motion.a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="glass flex flex-col items-center justify-center p-4 border border-primary-purple/30 rounded-lg hover:border-primary-purple transition-all duration-300 group relative w-24 h-24 md:w-32 md:h-32 card-hover mb-6"
+            className="glass flex flex-col items-center justify-center p-4 border border-primary-purple/30 rounded-lg hover:border-primary-purple transition-all duration-300 group relative w-24 h-24 md:w-32 md:h-32 card-hover mb-6 cursor-pointer"
         >
             <div className="text-4xl md:text-5xl text-gray-300 group-hover:text-primary-purple transition-colors duration-300">
                 {name === "C++" ? <CgCPlusPlus /> : children}
@@ -58,7 +61,7 @@ const TechIconWrapper = ({ children, name }) => {
             <div className="absolute inset-x-0 -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center text-sm font-semibold text-primary-purple whitespace-nowrap z-20">
                 {name}
             </div>
-        </motion.div>
+        </motion.a>
     );
 };
 

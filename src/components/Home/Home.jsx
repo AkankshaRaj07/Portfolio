@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Type from "./Type";
 import Tilt from "react-parallax-tilt";
-import myImg from "../../assets/pfp.jpeg";
+import myImg from "../../assets/Kitty.jpg";
 
 function Home() {
     return (
@@ -51,13 +51,13 @@ function Home() {
                             scale={1.05}
                             className="w-full max-w-sm"
                         >
-                            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto">
+                            <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
                                 <div className="absolute inset-0 bg-primary-purple/20 rounded-full blur-3xl animate-pulse"></div>
                                 {/* Fallback avatar icon using lucide, but a photo works better. We use Github Avatar */}
                                 <img
                                     src={myImg}
                                     alt="Avatar"
-                                    className="rounded-full w-full h-full object-cover scale-90 border-4 border-primary-purple/30 shadow-[0_0_40px_rgba(199,112,240,0.4)] relative z-10"
+                                    className="rounded-full w-full h-full object-cover scale-100 border-4 border-primary-purple/30 shadow-[0_0_40px_rgba(199,112,240,0.4)] relative z-10"
                                 />
                             </div>
                         </Tilt>
